@@ -65,8 +65,18 @@ struct AnimalDetailView: View {
                 .padding(.horizontal)
 
                 // MAP
+                Group {
+                    HeadingView(headingImage: "map", headingText: "National Parks")
+                    InsetMapView()
+                } //: GROUP
+                .padding(.horizontal)
 
                 // LINK
+                GroupBox {
+                    HeadingView(headingImage: "books.vertical", headingText: "Learn More")
+                    ExternalWebLinkView(animal: animal)
+                } //: GROUP
+                .padding(.vertical)
             } //: VSTACK
             .navigationBarTitle("Learn about \(animal.name)", displayMode: .inline)
         } //: SCROLL
