@@ -45,12 +45,23 @@ struct MapView: View {
 
                 // (C) CUSTOM BASIC ANNOTATION (it could be interactive)
                 MapAnnotation(coordinate: item.location) {
-                    Image("logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32, alignment: .center)
+                    MapAnnotationView(location: item)
                 }
-            })
+            }) //: MAP
+            .overlay(
+                Image("compass")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 48, height: 48, alignment: .center)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 16)
+                    .background(
+                        Color.black
+                            .cornerRadius(8)
+                            .opacity(0.6)
+                    )
+                , alignment: .top
+            )
     }
 }
 
